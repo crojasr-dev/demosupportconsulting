@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros | Support Consulting – Consultora de RRHH en Chile</title>
+  <meta name="description" content="Conoce al equipo multidisciplinario de Support Consulting. Más de 6 años de experiencia en hunting, evaluaciones psicolaborales y desarrollo organizacional en Chile." />
+  <meta property="og:title" content="Nosotros | Support Consulting" />
+  <meta property="og:description" content="Equipo especializado en RRHH: psicólogos, médicos y expertos en atracción de talento con cobertura nacional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --navy:#0d1b3e; --blue:#2b7de9; --blue-light:#5ba3f5; --white:#ffffff;
+      --bg-light:#f4f7fc; --text-dark:#1a1a2e; --text-mid:#4a5568; --border:#e2e8f0;
+      --green:#10b981; --wa-green:#25D366;
+      --shadow-sm:0 1px 3px rgba(0,0,0,.08); --shadow-md:0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg:0 8px 32px rgba(0,0,0,.14); --radius:12px;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; font-size:16px; color:var(--text-dark); background:var(--white); line-height:1.65; overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
+
+    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+    .section { padding:96px 0; }
+    .section-sm { padding:64px 0; }
+
+    .section-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; display:block; }
+    .section-title { font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:800; color:var(--navy); line-height:1.2; margin-bottom:16px; }
+    .section-title.light { color:var(--white); }
+    .section-subtitle { font-size:1.05rem; color:var(--text-mid); max-width:580px; margin-bottom:40px; }
+    .accent-line { width:56px; height:4px; background:linear-gradient(90deg,var(--blue),var(--blue-light)); border-radius:2px; margin-bottom:28px; }
+    .accent-line.centered { margin-left:auto; margin-right:auto; }
+
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 28px; border-radius:8px; font-size:.95rem; font-weight:600; cursor:pointer; border:2px solid transparent; transition:all .2s ease; text-decoration:none; white-space:nowrap; }
+    .btn-primary { background:var(--blue); color:var(--white); border-color:var(--blue); }
+    .btn-primary:hover { background:#1d6dd4; transform:translateY(-1px); box-shadow:0 4px 14px rgba(43,125,233,.35); }
+    .btn-white { background:var(--white); color:var(--navy); border-color:var(--white); }
+    .btn-white:hover { background:#f0f4ff; transform:translateY(-1px); }
+    .btn-white-outline { background:transparent; color:var(--white); border-color:rgba(255,255,255,.6); }
+    .btn-white-outline:hover { background:rgba(255,255,255,.12); border-color:var(--white); }
+    .btn-sm { padding:9px 18px; font-size:.875rem; }
+    .btn-lg { padding:16px 36px; font-size:1.05rem; }
+
+    /* NAVBAR */
+    .navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--white); padding:0 24px; height:72px; display:flex; align-items:center; justify-content:space-between; transition:box-shadow .3s; }
+    .navbar.scrolled { box-shadow:0 2px 20px rgba(0,0,0,.10); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo-mark { width:40px; height:40px; background:var(--navy); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; color:var(--white); flex-shrink:0; }
+    .nav-logo-text { display:flex; flex-direction:column; }
+    .nav-logo-name { font-size:.85rem; font-weight:800; color:var(--navy); letter-spacing:.04em; line-height:1.1; text-transform:uppercase; }
+    .nav-logo-sub { font-size:.65rem; font-weight:500; color:var(--text-mid); letter-spacing:.06em; text-transform:uppercase; }
+    .nav-links { display:flex; align-items:center; gap:4px; }
+    .nav-link { padding:8px 14px; font-size:.875rem; font-weight:500; color:var(--text-mid); border-radius:6px; transition:color .2s; position:relative; }
+    .nav-link:hover { color:var(--navy); }
+    .nav-link.active { color:var(--blue); }
+    .nav-link.active::after { content:''; position:absolute; bottom:0; left:14px; right:14px; height:2px; background:var(--blue); border-radius:2px; }
+    .nav-actions { display:flex; align-items:center; gap:12px; }
+    .nav-wa { width:38px; height:38px; border-radius:50%; background:#e8f8ee; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+    .nav-wa:hover { background:var(--wa-green); }
+    .nav-wa:hover svg { stroke:var(--white); }
+    .nav-wa svg { stroke:var(--wa-green); width:20px; height:20px; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; border:none; background:none; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--navy); border-radius:2px; transition:all .3s; }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display:none; position:fixed; top:72px; left:0; right:0; background:var(--white); border-top:1px solid var(--border); box-shadow:0 8px 24px rgba(0,0,0,.12); z-index:999; flex-direction:column; padding:16px 24px 24px; animation:slideDown .25s ease; }
+    .mobile-menu.open { display:flex; }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+    .mobile-menu .nav-link { padding:12px 0; border-bottom:1px solid var(--border); border-radius:0; font-size:1rem; }
+    .mobile-menu .nav-link:last-child { border-bottom:none; }
+    .mobile-menu .nav-actions { margin-top:16px; flex-wrap:wrap; }
+
+    /* HERO MINI */
+    .hero-mini { background:var(--navy); padding:120px 0 64px; position:relative; overflow:hidden; }
+    .hero-mini-pattern { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(91,163,245,.12) 1px,transparent 1px); background-size:28px 28px; }
+    .hero-mini-content { position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:8px; font-size:.8rem; color:rgba(255,255,255,.5); margin-bottom:20px; }
+    .breadcrumb a { color:rgba(255,255,255,.5); transition:color .2s; }
+    .breadcrumb a:hover { color:var(--white); }
+
+    /* ABOUT */
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .about-text p { font-size:1.05rem; color:var(--text-mid); line-height:1.75; margin-bottom:20px; }
+    .about-badges { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+    .about-badge { display:flex; align-items:center; gap:8px; padding:10px 16px; border:1px solid var(--border); border-radius:8px; font-size:.82rem; font-weight:600; color:var(--navy); background:var(--white); box-shadow:var(--shadow-sm); }
+    .about-badge svg { stroke:var(--blue); }
+    .metrics-2x2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .metric-box { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:28px; text-align:center; box-shadow:var(--shadow-sm); }
+    .metric-box-num { font-size:2.5rem; font-weight:800; color:var(--navy); line-height:1; margin-bottom:6px; }
+    .metric-box-label { font-size:.82rem; color:var(--text-mid); font-weight:500; }
+    .metric-box-accent { width:28px; height:3px; background:var(--blue); border-radius:2px; margin:10px auto 0; }
+
+    /* TEAM */
+    .team-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .team-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:32px 28px; transition:box-shadow .25s,transform .25s; }
+    .team-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); }
+    .team-avatar { width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue-light)); display:flex; align-items:center; justify-content:center; font-size:1.4rem; font-weight:800; color:var(--white); margin-bottom:16px; }
+    .team-name { font-size:1.05rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
+    .team-role { font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin-bottom:2px; }
+    .team-area { font-size:.78rem; color:var(--text-mid); margin-bottom:12px; }
+    .team-expertise { font-size:.88rem; font-style:italic; color:var(--text-dark); margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+    .team-bio { font-size:.85rem; color:var(--text-mid); line-height:1.6; }
+    .team-note { text-align:center; font-size:.8rem; color:var(--text-mid); margin-top:24px; }
+
+    /* TIMELINE */
+    .timeline { position:relative; display:flex; gap:0; align-items:flex-start; justify-content:space-between; }
+    .timeline::before { content:''; position:absolute; top:28px; left:5%; right:5%; height:2px; background:linear-gradient(90deg,var(--blue),var(--blue-light)); z-index:0; }
+    .timeline-step { flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1; padding:0 8px; }
+    .step-num { width:56px; height:56px; border-radius:50%; border:2px solid var(--blue); background:var(--white); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:16px; box-shadow:0 0 0 6px var(--white); }
+    .step-title { font-size:.9rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .step-desc { font-size:.8rem; color:var(--text-mid); line-height:1.5; }
+
+    /* INDUSTRIES */
+    .industry-pills { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px; }
+    .industry-pill { padding:8px 18px; border-radius:20px; border:1px solid var(--border); background:var(--white); font-size:.875rem; font-weight:600; color:var(--navy); transition:all .2s; cursor:default; }
+    .industry-pill:hover { background:var(--navy); color:var(--white); border-color:var(--navy); }
+
+    /* LOGO STRIP */
+    .logo-strip-label { text-align:center; font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--text-mid); margin-bottom:32px; }
+    .logo-strip-row { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; align-items:center; }
+    .logo-box { padding:14px 24px; border:1px solid var(--border); border-radius:8px; background:var(--white); font-size:.8rem; font-weight:700; color:var(--text-mid); letter-spacing:.04em; text-transform:uppercase; filter:grayscale(1); opacity:.55; transition:all .3s; cursor:default; }
+    .logo-box:hover { filter:grayscale(0); opacity:1; color:var(--navy); border-color:var(--blue); }
+
+    /* CTA */
+    .cta-section { background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%); padding:96px 0; text-align:center; }
+
+    /* FOOTER */
+    .footer { background:var(--navy); color:var(--white); padding:64px 0 0; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1.5fr 2fr; gap:48px; margin-bottom:48px; }
+    .footer-logo { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+    .footer-logo-mark { width:40px; height:40px; border:1px solid rgba(255,255,255,.2); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; font-weight:800; color:var(--white); }
+    .footer-logo-name { font-size:.85rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--white); }
+    .footer-logo-sub { font-size:.62rem; font-weight:500; color:rgba(255,255,255,.5); letter-spacing:.07em; text-transform:uppercase; }
+    .footer-tagline { font-size:.88rem; color:rgba(255,255,255,.6); margin-bottom:20px; line-height:1.6; }
+    .footer-social { display:flex; gap:10px; }
+    .footer-social a { width:36px; height:36px; border-radius:8px; border:1px solid rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; transition:background .2s; }
+    .footer-social a:hover { background:rgba(255,255,255,.1); }
+    .footer-social a svg { stroke:rgba(255,255,255,.7); }
+    .footer-col-title { font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:20px; }
+    .footer-links { display:flex; flex-direction:column; gap:10px; }
+    .footer-link { font-size:.875rem; color:rgba(255,255,255,.65); transition:color .2s; }
+    .footer-link:hover { color:var(--white); }
+    .footer-contact-items { display:flex; flex-direction:column; gap:12px; }
+    .footer-contact-item { display:flex; align-items:flex-start; gap:10px; }
+    .footer-contact-item svg { stroke:var(--blue-light); flex-shrink:0; margin-top:2px; }
+    .footer-contact-item a, .footer-contact-item span { font-size:.85rem; color:rgba(255,255,255,.65); transition:color .2s; }
+    .footer-contact-item a:hover { color:var(--white); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding:20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .footer-bottom-text { font-size:.78rem; color:rgba(255,255,255,.4); }
+    .footer-bottom-links { display:flex; gap:20px; }
+    .footer-bottom-link { font-size:.78rem; color:rgba(255,255,255,.4); transition:color .2s; }
+    .footer-bottom-link:hover { color:rgba(255,255,255,.7); }
+
+    .fab-group { position:fixed; bottom:28px; right:28px; display:flex; flex-direction:column; gap:12px; z-index:900; }
+    .fab-wa { width:52px; height:52px; border-radius:50%; background:var(--wa-green); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(37,211,102,.4); transition:transform .2s; }
+    .fab-wa:hover { transform:scale(1.1); }
+    .fab-wa svg { stroke:var(--white); }
+    .fab-top { width:44px; height:44px; border-radius:50%; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,.1); cursor:pointer; transition:all .2s; opacity:0; pointer-events:none; }
+    .fab-top.visible { opacity:1; pointer-events:auto; }
+    .fab-top:hover { background:var(--navy); border-color:var(--navy); }
+    .fab-top:hover svg { stroke:var(--white); }
+    .fab-top svg { stroke:var(--navy); transition:stroke .2s; }
+
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .55s ease,transform .55s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1 { transition-delay:.1s; }
+    .reveal-delay-2 { transition-delay:.2s; }
+    .reveal-delay-3 { transition-delay:.3s; }
+    .reveal-delay-4 { transition-delay:.4s; }
+
+    @media (max-width:1024px) {
+      .about-grid { grid-template-columns:1fr; gap:40px; }
+      .team-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+      .footer-grid>*:first-child { grid-column:1/-1; }
+    }
+    @media (max-width:768px) {
+      .section { padding:64px 0; }
+      .nav-links { display:none; }
+      .nav-actions .btn { display:none; }
+      .hamburger { display:flex; }
+      .metrics-2x2 { grid-template-columns:1fr 1fr; }
+      .timeline { flex-direction:column; gap:32px; }
+      .timeline::before { display:none; }
+      .timeline-step { flex-direction:row; text-align:left; gap:16px; }
+      .step-num { flex-shrink:0; margin-bottom:0; }
+      .footer-grid { grid-template-columns:1fr; }
+      .footer-grid>*:first-child { grid-column:auto; }
+      .fab-group { bottom:20px; right:20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">S</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Support Consulting</span>
+        <span class="nav-logo-sub">Recursos Humanos</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="servicios.html" class="nav-link">Servicios</a>
+      <a href="nosotros.html" class="nav-link active">Nosotros</a>
+      <a href="testimonios.html" class="nav-link">Testimonios</a>
+      <a href="contacto.html" class="nav-link">Contacto</a>
+    </div>
+    <div class="nav-actions">
+      <a href="contacto.html" class="btn btn-primary btn-sm">Cotizar</a>
+      <a href="https://wa.me/56999346070" target="_blank" class="nav-wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="nosotros.html" class="nav-link active">Nosotros</a>
+    <a href="testimonios.html" class="nav-link">Testimonios</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <div class="nav-actions" style="margin-top:16px;gap:10px;">
+      <a href="contacto.html" class="btn btn-primary btn-sm">Cotizar</a>
+      <a href="https://wa.me/56999346070" target="_blank" class="btn btn-sm" style="background:var(--wa-green);color:white;border-color:var(--wa-green);">WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- HERO MINI -->
+  <section class="hero-mini">
+    <div class="hero-mini-pattern"></div>
+    <div class="container hero-mini-content">
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span style="opacity:.4">›</span>
+        <span style="color:rgba(255,255,255,.8)">Nosotros</span>
+      </div>
+      <span class="section-label" style="color:var(--blue-light);">El equipo</span>
+      <h1 class="section-title light" style="font-size:clamp(2rem,4vw,3rem);">Quiénes Somos</h1>
+      <div class="accent-line"></div>
+      <p class="section-subtitle" style="color:rgba(255,255,255,.75);">Actuamos como extensión de tu área de RRHH con metodología, criterio técnico y cobertura nacional.</p>
+    </div>
+  </section>
+
+  <!-- HISTORIA / PROPÓSITO -->
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-label">Nuestra historia</span>
+          <h2 class="section-title">Partner estratégico en RRHH</h2>
+          <div class="accent-line"></div>
+          <p>En Support Consulting actuamos como extensión del área de Recursos Humanos. Acompañamos decisiones de contratación con metodología de hunting y evaluaciones, para reducir riesgo y aliviar la carga del equipo.</p>
+          <p>Más de 6 años trabajando con empresas del sector público y privado en todo Chile, en industrias tan diversas como seguridad, retail, salud, construcción y educación.</p>
+          <p>Nuestro diferencial es la combinación de criterio psicológico, experiencia ejecutiva y estructura de proceso — entregamos más que candidatos: entregamos decisiones respaldadas.</p>
+          <div class="about-badges" style="margin-top:24px;">
+            <div class="about-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Acreditado ChileCompra
+            </div>
+            <div class="about-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Cobertura Nacional
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="metrics-2x2">
+            <div class="metric-box">
+              <div class="metric-box-num">+8.000</div>
+              <div class="metric-box-label">Evaluaciones realizadas</div>
+              <div class="metric-box-accent"></div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-num">+30</div>
+              <div class="metric-box-label">Clientes activos</div>
+              <div class="metric-box-accent"></div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-num">+6 años</div>
+              <div class="metric-box-label">De experiencia</div>
+              <div class="metric-box-accent"></div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-num">+10</div>
+              <div class="metric-box-label">Industrias atendidas</div>
+              <div class="metric-box-accent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="section" style="background:var(--bg-light);">
+    <div class="container">
+      <span class="section-label reveal">El equipo</span>
+      <h2 class="section-title reveal">Equipo Multidisciplinario</h2>
+      <div class="accent-line reveal"></div>
+      <p class="section-subtitle reveal">Cuatro áreas especializadas trabajando de forma coordinada para cubrir cada etapa del proceso de selección y evaluación.</p>
+
+      <div class="team-grid">
+
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-avatar">SD</div>
+          <div class="team-name">Sebastián Díaz Iribarren</div>
+          <div class="team-role">Líder de Proyectos</div>
+          <div class="team-area">Atracción de Talento</div>
+          <div class="team-expertise">"Especialista en hunting ejecutivo y equipos de alto desempeño."</div>
+          <p class="team-bio">Más de 5 años liderando procesos de hunting ejecutivo y evaluación psicolaboral. Especialista en identificación de talento crítico en sectores de construcción, retail e industria.</p>
+        </div>
+
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">PE</div>
+          <div class="team-name">Dra. Paula Escandón</div>
+          <div class="team-role">Líder Área Médica</div>
+          <div class="team-area">Evaluaciones Médicas</div>
+          <div class="team-expertise">"Medicina ocupacional y certificaciones de aptitud para roles críticos."</div>
+          <p class="team-bio">Médico cirujano con especialización en medicina ocupacional y salud laboral. Más de 8 años en evaluaciones médicas pre-ocupacionales y vigilancia epidemiológica.</p>
+        </div>
+
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);">CG</div>
+          <div class="team-name">Carlo Godoy Cortés</div>
+          <div class="team-role">Líder de Evaluaciones</div>
+          <div class="team-area">Evaluaciones Psicolaborales</div>
+          <div class="team-expertise">"Diseño de baterías evaluativas y perfiles de cargo para selección estratégica."</div>
+          <p class="team-bio">Psicólogo organizacional con más de 7 años en evaluación psicolaboral y de competencias. Especialista en informes técnicos orientados a la decisión.</p>
+        </div>
+
+        <div class="team-card reveal reveal-delay-4">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">MR</div>
+          <div class="team-name">Matías Rodríguez Godoy</div>
+          <div class="team-role">Director Ejecutivo</div>
+          <div class="team-area">DO & Bienestar</div>
+          <div class="team-expertise">"Coaching ejecutivo, clima laboral y gestión del cambio."</div>
+          <p class="team-bio">Psicólogo organizacional con más de 10 años liderando proyectos de desarrollo organizacional. Director ejecutivo de Support Consulting.</p>
+        </div>
+
+      </div>
+      <p class="team-note reveal" style="color:var(--text-mid);margin-top:24px;">Fotos del equipo próximamente.</p>
+    </div>
+  </section>
+
+  <!-- METODOLOGÍA -->
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <span class="section-label reveal">Proceso</span>
+      <h2 class="section-title reveal">Nuestra Metodología</h2>
+      <div class="accent-line reveal"></div>
+      <p class="section-subtitle reveal">Un proceso estructurado, ágil y consistente para atraer talento sin sobrecargar a tu equipo.</p>
+      <div class="timeline reveal">
+        <div class="timeline-step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Levantamiento</div>
+            <div class="step-desc">Definimos perfil, cultura y criterios de éxito.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Búsqueda</div>
+            <div class="step-desc">Hunting activo y preselección con filtros estratégicos.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Evaluación</div>
+            <div class="step-desc">Entrevistas profundas y consolidación de hallazgos.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">Presentación</div>
+            <div class="step-desc">Finalistas comparables con orientación para decidir.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">5</div>
+          <div>
+            <div class="step-title">Cierre</div>
+            <div class="step-desc">Acompañamos el cierre y la incorporación.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIAS -->
+  <section class="section" style="background:var(--bg-light);">
+    <div class="container">
+      <span class="section-label reveal">Experiencia sectorial</span>
+      <h2 class="section-title reveal">Experiencia en +10 Industrias</h2>
+      <div class="accent-line reveal"></div>
+      <p class="section-subtitle reveal">Clientes del sector público y privado en todo Chile.</p>
+      <div class="industry-pills reveal">
+        <span class="industry-pill">Seguridad</span>
+        <span class="industry-pill">Retail</span>
+        <span class="industry-pill">Construcción</span>
+        <span class="industry-pill">Salud</span>
+        <span class="industry-pill">Educación</span>
+        <span class="industry-pill">Minería</span>
+        <span class="industry-pill">Sector Público</span>
+        <span class="industry-pill">Servicios</span>
+        <span class="industry-pill">Industria</span>
+        <span class="industry-pill">Logística</span>
+      </div>
+      <div class="logo-strip-label reveal">Algunos de nuestros clientes</div>
+      <div class="logo-strip-row reveal">
+        <div class="logo-box">SML</div>
+        <div class="logo-box">Mutual Asesorías</div>
+        <div class="logo-box">Lo Valledor</div>
+        <div class="logo-box">Brinks</div>
+        <div class="logo-box">Trewhela's School</div>
+        <div class="logo-box">Fiscalía</div>
+        <div class="logo-box">Corp. Municipal Puente Alto</div>
+        <div class="logo-box">CAMAR</div>
+        <div class="logo-box">Loomis</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container" style="text-align:center;">
+      <span class="section-label reveal" style="color:var(--blue-light);display:block;margin-bottom:12px;">Trabaja con nosotros</span>
+      <h2 class="section-title reveal" style="color:var(--white);max-width:600px;margin:0 auto 16px;">¿Quieres conocernos mejor?</h2>
+      <div class="accent-line centered reveal"></div>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,.78);max-width:500px;margin:0 auto 36px;" class="reveal">Conversemos sobre tu desafío de RRHH y te mostramos cómo podemos ayudarte.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;" class="reveal">
+        <a href="contacto.html" class="btn btn-white btn-lg" style="color:var(--navy);">Contactar ahora</a>
+        <a href="https://wa.me/56999346070" target="_blank" class="btn btn-white-outline btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-mark">S</div>
+            <div class="nav-logo-text">
+              <span class="footer-logo-name">Support Consulting</span>
+              <span class="footer-logo-sub">Recursos Humanos</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Tu partner estratégico en Recursos Humanos. Hunting, selección y evaluaciones con metodología y criterio técnico.</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Mapa del Sitio</div>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Inicio</a>
+            <a href="servicios.html#hunting" class="footer-link">Hunting & Selección</a>
+            <a href="servicios.html#evaluaciones" class="footer-link">Evaluaciones Psicolaborales</a>
+            <a href="servicios.html#do" class="footer-link">DO & Salud Laboral</a>
+            <a href="nosotros.html" class="footer-link">Nosotros</a>
+            <a href="testimonios.html" class="footer-link">Testimonios</a>
+            <a href="contacto.html" class="footer-link">Contacto</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contacto Rápido</div>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:matias@supportconsulting.cl">matias@supportconsulting.cl</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/56999346070" target="_blank">+56 9 993 46070</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Los Militares 5620 Piso 9, Las Condes, Santiago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-bottom-text">© 2026 Support Consulting. Todos los derechos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-bottom-link">Política de Privacidad</a>
+          <a href="#" class="footer-bottom-link">Confidencialidad de Datos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab-group">
+    <button class="fab-top" id="fabTop" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <a href="https://wa.me/56999346070" target="_blank" class="fab-wa" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+      document.getElementById('fabTop').classList.toggle('visible', window.scrollY > 400);
+    });
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
