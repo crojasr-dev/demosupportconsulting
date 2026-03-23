@@ -205,11 +205,11 @@
     }
     .hero-pattern {
       position: absolute; inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(91,163,245,.15) 1px, transparent 1px),
-        linear-gradient(rgba(43,125,233,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(43,125,233,.06) 1px, transparent 1px);
-      background-size: 32px 32px, 64px 64px, 64px 64px;
+      background-image: url('img/image.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.15;
     }
     .hero-visual {
       position: relative; z-index: 1; text-align: center; padding: 40px;
@@ -243,11 +243,14 @@
     .metric-label { font-size: .875rem; font-weight: 500; color: var(--text-mid); }
     .metric-accent { width: 32px; height: 3px; background: var(--blue); border-radius: 2px; margin: 12px auto 0; }
     .chilearbitration-badge {
-      display: flex; align-items: center; gap: 10px; padding: 12px 20px;
+      display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 24px 32px;
       background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
       box-shadow: var(--shadow-sm); font-size: .82rem; font-weight: 600; color: var(--navy);
+      min-width: 260px;
     }
-    .chilearbitration-badge .badge-icon { width: 32px; height: 32px; background: #f0f7ff; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    .chilearbitration-badge .badge-icon { display: none; }
+    .chilearbitration-badge img { height: 80px; width: auto; object-fit: contain; }
+    .chilearbitration-badge .badge-text { display: flex; align-items: center; gap: 6px; }
 
     /* =====================================================
        LOGO STRIP
@@ -257,15 +260,31 @@
       letter-spacing: .16em; text-transform: uppercase; color: var(--text-mid);
       margin-bottom: 32px;
     }
-    .logo-strip-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; }
+    .logo-strip-track-wrap {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+    .logo-strip-row {
+      display: flex; flex-wrap: nowrap; gap: 16px; align-items: center;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .logo-strip-track-wrap:hover .logo-strip-row { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     .logo-box {
+      flex-shrink: 0;
       padding: 14px 24px; border: 1px solid var(--border); border-radius: 8px;
       background: var(--white); font-size: .8rem; font-weight: 700;
       color: var(--text-mid); letter-spacing: .04em; text-transform: uppercase;
-      filter: grayscale(1); opacity: .55; transition: all .3s;
+      opacity: .55; transition: all .3s;
       cursor: default;
     }
-    .logo-box:hover { filter: grayscale(0); opacity: 1; color: var(--navy); border-color: var(--blue); }
+    .logo-box:hover { opacity: 1; color: var(--navy); border-color: var(--blue); }
 
     /* =====================================================
        SERVICE CARDS
@@ -299,13 +318,22 @@
       height: 2px; background: linear-gradient(90deg, var(--blue), var(--blue-light));
       z-index: 0;
     }
-    .timeline-step { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; padding: 0 8px; }
     .step-num {
       width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--blue);
       background: var(--white); display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 16px;
       box-shadow: 0 0 0 6px var(--white);
+      opacity: 0; transform: scale(0.5);
+      transition: opacity .4s ease, transform .4s cubic-bezier(.34,1.56,.64,1), background .3s, color .3s, border-color .3s;
     }
+    .step-num.active {
+      opacity: 1; transform: scale(1);
+      background: var(--blue); color: var(--white); border-color: var(--blue);
+      box-shadow: 0 0 0 6px var(--white), 0 0 0 8px rgba(43,125,233,.2);
+    }
+    .timeline-step { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; padding: 0 8px; }
+    .timeline-step .step-body { opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; }
+    .timeline-step.step-visible .step-body { opacity: 1; transform: translateY(0); }
     .step-title { font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
     .step-desc { font-size: .8rem; color: var(--text-mid); line-height: 1.5; }
 
@@ -582,12 +610,13 @@
       </div>
       <div style="display:flex;justify-content:center;margin-top:32px;" class="reveal reveal-delay-2">
         <div class="chilearbitration-badge">
-          <div class="badge-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2b7de9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <img src="img/mercado_publico.png" alt="Mercado Público">
+          <span class="badge-text">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2b7de9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
-          </div>
-          <span>Proveedor acreditado en <strong style="color:var(--navy)">ChileCompra</strong> &nbsp;·&nbsp; Mercado Público</span>
+            Proveedor acreditado en <strong style="color:var(--navy);margin-left:4px;">ChileCompra</strong>
+          </span>
         </div>
       </div>
     </div>
@@ -597,7 +626,10 @@
   <section class="section-sm bg-white">
     <div class="container">
       <div class="logo-strip-label reveal">Confían en nosotros</div>
-      <div class="logo-strip-row reveal reveal-delay-1">
+    </div>
+    <div class="logo-strip-track-wrap">
+      <div class="logo-strip-row" aria-hidden="false">
+        <!-- set 1 -->
         <div class="logo-box">SML</div>
         <div class="logo-box">Mutual Asesorías</div>
         <div class="logo-box">Lo Valledor</div>
@@ -607,6 +639,16 @@
         <div class="logo-box">Corp. Municipal Puente Alto</div>
         <div class="logo-box">CAMAR</div>
         <div class="logo-box">Loomis</div>
+        <!-- set 2 (duplicado para loop continuo) -->
+        <div class="logo-box" aria-hidden="true">SML</div>
+        <div class="logo-box" aria-hidden="true">Mutual Asesorías</div>
+        <div class="logo-box" aria-hidden="true">Lo Valledor</div>
+        <div class="logo-box" aria-hidden="true">Brinks</div>
+        <div class="logo-box" aria-hidden="true">Trewhela's School</div>
+        <div class="logo-box" aria-hidden="true">Fiscalía</div>
+        <div class="logo-box" aria-hidden="true">Corp. Municipal Puente Alto</div>
+        <div class="logo-box" aria-hidden="true">CAMAR</div>
+        <div class="logo-box" aria-hidden="true">Loomis</div>
       </div>
     </div>
   </section>
@@ -675,38 +717,38 @@
       <h2 class="section-title reveal">Cómo Trabajamos</h2>
       <div class="accent-line reveal"></div>
       <p class="section-subtitle reveal">Un proceso claro, ágil y consistente para atraer talento sin sobrecargar a tu equipo.</p>
-      <div class="timeline reveal">
+      <div class="timeline" id="timeline">
         <div class="timeline-step">
           <div class="step-num">1</div>
-          <div>
+          <div class="step-body">
             <div class="step-title">Levantamiento</div>
             <div class="step-desc">Definimos perfil, cultura y criterios de éxito.</div>
           </div>
         </div>
         <div class="timeline-step">
           <div class="step-num">2</div>
-          <div>
+          <div class="step-body">
             <div class="step-title">Búsqueda</div>
             <div class="step-desc">Hunting activo y preselección con filtros estratégicos.</div>
           </div>
         </div>
         <div class="timeline-step">
           <div class="step-num">3</div>
-          <div>
+          <div class="step-body">
             <div class="step-title">Evaluación</div>
             <div class="step-desc">Entrevistas profundas y consolidación de hallazgos.</div>
           </div>
         </div>
         <div class="timeline-step">
           <div class="step-num">4</div>
-          <div>
+          <div class="step-body">
             <div class="step-title">Presentación</div>
             <div class="step-desc">Finalistas comparables con orientación para decidir.</div>
           </div>
         </div>
         <div class="timeline-step">
           <div class="step-num">5</div>
-          <div>
+          <div class="step-body">
             <div class="step-title">Cierre</div>
             <div class="step-desc">Acompañamos el cierre y la incorporación.</div>
           </div>
@@ -961,6 +1003,49 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+
+    // Timeline sequential animation (loops every 4s while visible)
+    const timeline = document.getElementById('timeline');
+    if (timeline) {
+      const steps = timeline.querySelectorAll('.timeline-step');
+      let loopTimer = null;
+
+      function runSequence() {
+        // reset
+        steps.forEach(step => {
+          step.querySelector('.step-num').classList.remove('active');
+          step.classList.remove('step-visible');
+        });
+        // animate one by one
+        steps.forEach((step, i) => {
+          setTimeout(() => {
+            step.querySelector('.step-num').classList.add('active');
+            step.classList.add('step-visible');
+          }, i * 180);
+        });
+      }
+
+      function startLoop() {
+        runSequence();
+        loopTimer = setInterval(runSequence, 4000);
+      }
+
+      function stopLoop() {
+        clearInterval(loopTimer);
+        loopTimer = null;
+      }
+
+      const tlObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startLoop();
+          } else {
+            stopLoop();
+          }
+        });
+      }, { threshold: 0.25 });
+      tlObserver.observe(timeline);
+    }
   </script>
 </body>
 </html>

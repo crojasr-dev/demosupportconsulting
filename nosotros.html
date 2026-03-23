@@ -107,14 +107,6 @@
     .team-bio { font-size:.85rem; color:var(--text-mid); line-height:1.6; }
     .team-note { text-align:center; font-size:.8rem; color:var(--text-mid); margin-top:24px; }
 
-    /* TIMELINE */
-    .timeline { position:relative; display:flex; gap:0; align-items:flex-start; justify-content:space-between; }
-    .timeline::before { content:''; position:absolute; top:28px; left:5%; right:5%; height:2px; background:linear-gradient(90deg,var(--blue),var(--blue-light)); z-index:0; }
-    .timeline-step { flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1; padding:0 8px; }
-    .step-num { width:56px; height:56px; border-radius:50%; border:2px solid var(--blue); background:var(--white); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:16px; box-shadow:0 0 0 6px var(--white); }
-    .step-title { font-size:.9rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
-    .step-desc { font-size:.8rem; color:var(--text-mid); line-height:1.5; }
-
     /* INDUSTRIES */
     .industry-pills { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px; }
     .industry-pill { padding:8px 18px; border-radius:20px; border:1px solid var(--border); background:var(--white); font-size:.875rem; font-weight:600; color:var(--navy); transition:all .2s; cursor:default; }
@@ -185,9 +177,7 @@
       .nav-actions .btn { display:none; }
       .hamburger { display:flex; }
       .metrics-2x2 { grid-template-columns:1fr 1fr; }
-      .timeline { flex-direction:column; gap:32px; }
-      .timeline::before { display:none; }
-      .timeline-step { flex-direction:row; text-align:left; gap:16px; }
+
       .step-num { flex-shrink:0; margin-bottom:0; }
       .footer-grid { grid-template-columns:1fr; }
       .footer-grid>*:first-child { grid-column:auto; }
@@ -347,53 +337,6 @@
 
       </div>
       <p class="team-note reveal" style="color:var(--text-mid);margin-top:24px;">Fotos del equipo próximamente.</p>
-    </div>
-  </section>
-
-  <!-- METODOLOGÍA -->
-  <section class="section" style="background:var(--white);">
-    <div class="container">
-      <span class="section-label reveal">Proceso</span>
-      <h2 class="section-title reveal">Nuestra Metodología</h2>
-      <div class="accent-line reveal"></div>
-      <p class="section-subtitle reveal">Un proceso estructurado, ágil y consistente para atraer talento sin sobrecargar a tu equipo.</p>
-      <div class="timeline reveal">
-        <div class="timeline-step">
-          <div class="step-num">1</div>
-          <div>
-            <div class="step-title">Levantamiento</div>
-            <div class="step-desc">Definimos perfil, cultura y criterios de éxito.</div>
-          </div>
-        </div>
-        <div class="timeline-step">
-          <div class="step-num">2</div>
-          <div>
-            <div class="step-title">Búsqueda</div>
-            <div class="step-desc">Hunting activo y preselección con filtros estratégicos.</div>
-          </div>
-        </div>
-        <div class="timeline-step">
-          <div class="step-num">3</div>
-          <div>
-            <div class="step-title">Evaluación</div>
-            <div class="step-desc">Entrevistas profundas y consolidación de hallazgos.</div>
-          </div>
-        </div>
-        <div class="timeline-step">
-          <div class="step-num">4</div>
-          <div>
-            <div class="step-title">Presentación</div>
-            <div class="step-desc">Finalistas comparables con orientación para decidir.</div>
-          </div>
-        </div>
-        <div class="timeline-step">
-          <div class="step-num">5</div>
-          <div>
-            <div class="step-title">Cierre</div>
-            <div class="step-desc">Acompañamos el cierre y la incorporación.</div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
