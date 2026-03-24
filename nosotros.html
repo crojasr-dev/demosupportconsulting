@@ -112,12 +112,6 @@
     .industry-pill { padding:8px 18px; border-radius:20px; border:1px solid var(--border); background:var(--white); font-size:.875rem; font-weight:600; color:var(--navy); transition:all .2s; cursor:default; }
     .industry-pill:hover { background:var(--navy); color:var(--white); border-color:var(--navy); }
 
-    /* LOGO STRIP */
-    .logo-strip-label { text-align:center; font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--text-mid); margin-bottom:32px; }
-    .logo-strip-row { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; align-items:center; }
-    .logo-box { padding:14px 24px; border:1px solid var(--border); border-radius:8px; background:var(--white); font-size:.8rem; font-weight:700; color:var(--text-mid); letter-spacing:.04em; text-transform:uppercase; filter:grayscale(1); opacity:.55; transition:all .3s; cursor:default; }
-    .logo-box:hover { filter:grayscale(0); opacity:1; color:var(--navy); border-color:var(--blue); }
-
     /* CTA */
     .cta-section { background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%); padding:96px 0; text-align:center; }
 
@@ -172,13 +166,15 @@
       .footer-grid>*:first-child { grid-column:1/-1; }
     }
     @media (max-width:768px) {
-      .section { padding:64px 0; }
+      .section { padding:48px 0; }
       .nav-links { display:none; }
       .nav-actions .btn { display:none; }
       .hamburger { display:flex; }
-      .metrics-2x2 { grid-template-columns:1fr 1fr; }
-
-      .step-num { flex-shrink:0; margin-bottom:0; }
+      .about-grid { gap:24px; }
+      .team-grid { grid-template-columns:1fr; }
+      .metrics-2x2 { grid-template-columns:1fr 1fr; gap:12px; }
+      .metric-box { padding:20px 12px; }
+      .metric-box-num { font-size:2rem; }
       .footer-grid { grid-template-columns:1fr; }
       .footer-grid>*:first-child { grid-column:auto; }
       .fab-group { bottom:20px; right:20px; }
@@ -190,11 +186,7 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">S</div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">Support Consulting</span>
-        <span class="nav-logo-sub">Recursos Humanos</span>
-      </div>
+      <img src="img/logo.png" alt="Support Consulting" style="height:40px;width:auto;">
     </a>
     <div class="nav-links">
       <a href="index.html" class="nav-link">Inicio</a>
@@ -251,10 +243,6 @@
           <p>Más de 6 años trabajando con empresas del sector público y privado en todo Chile, en industrias tan diversas como seguridad, retail, salud, construcción y educación.</p>
           <p>Nuestro diferencial es la combinación de criterio psicológico, experiencia ejecutiva y estructura de proceso — entregamos más que candidatos: entregamos decisiones respaldadas.</p>
           <div class="about-badges" style="margin-top:24px;">
-            <div class="about-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Acreditado ChileCompra
-            </div>
             <div class="about-badge">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Cobertura Nacional
@@ -358,18 +346,6 @@
         <span class="industry-pill">Servicios</span>
         <span class="industry-pill">Industria</span>
         <span class="industry-pill">Logística</span>
-      </div>
-      <div class="logo-strip-label reveal">Algunos de nuestros clientes</div>
-      <div class="logo-strip-row reveal">
-        <div class="logo-box">SML</div>
-        <div class="logo-box">Mutual Asesorías</div>
-        <div class="logo-box">Lo Valledor</div>
-        <div class="logo-box">Brinks</div>
-        <div class="logo-box">Trewhela's School</div>
-        <div class="logo-box">Fiscalía</div>
-        <div class="logo-box">Corp. Municipal Puente Alto</div>
-        <div class="logo-box">CAMAR</div>
-        <div class="logo-box">Loomis</div>
       </div>
     </div>
   </section>

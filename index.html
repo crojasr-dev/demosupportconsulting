@@ -176,14 +176,14 @@
        HERO
     ===================================================== */
     .hero {
-      min-height: 100vh; display: grid; grid-template-columns: 55fr 45fr;
-      padding-top: 72px;
+      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+      padding-top: 72px; overflow: hidden;
     }
     .hero-left {
       display: flex; flex-direction: column; justify-content: center;
-      padding: 80px 60px 80px 24px; max-width: 700px; margin-left: auto;
+      padding: 80px 60px 80px max(24px, calc((100vw - 1200px) / 2 + 24px));
+      min-width: 0;
     }
-    .hero-left { padding-left: max(24px, calc((100vw - 1200px) / 2 + 24px)); }
     .hero-eyebrow {
       font-size: 10.5px; font-weight: 700; letter-spacing: .18em;
       text-transform: uppercase; color: var(--blue); margin-bottom: 20px;
@@ -201,11 +201,11 @@
     .trust-item .check { color: var(--green); font-size: 1rem; }
     .hero-right {
       background: var(--navy); display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
+      position: relative; overflow: hidden; min-width: 0;
     }
     .hero-pattern {
       position: absolute; inset: 0;
-      background-image: url('img/image.png');
+      background-image: url('img/image_principal.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -338,27 +338,6 @@
     .step-desc { font-size: .8rem; color: var(--text-mid); line-height: 1.5; }
 
     /* =====================================================
-       TESTIMONIALS
-    ===================================================== */
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 20px; }
-    .testimonial-card {
-      background: var(--white); border-radius: var(--radius); padding: 32px 28px;
-      box-shadow: var(--shadow-md); display: flex; flex-direction: column; gap: 20px;
-    }
-    .testimonial-quote-mark { font-size: 3.5rem; font-weight: 800; color: var(--blue); line-height: .6; display: block; }
-    .testimonial-text { font-size: .92rem; font-style: italic; color: var(--text-dark); line-height: 1.65; flex: 1; }
-    .testimonial-author { display: flex; align-items: center; gap: 14px; }
-    .author-avatar {
-      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--blue), var(--blue-light));
-      display: flex; align-items: center; justify-content: center;
-      font-size: .8rem; font-weight: 700; color: var(--white);
-    }
-    .author-name { font-size: .88rem; font-weight: 700; color: var(--navy); }
-    .author-role { font-size: .78rem; color: var(--text-mid); }
-    .testimonials-note { font-size: .78rem; color: rgba(255,255,255,.5); text-align: center; margin-top: 4px; }
-
-    /* =====================================================
        CASE CARDS
     ===================================================== */
     .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -479,25 +458,29 @@
       .footer-grid > *:first-child { grid-column: 1 / -1; }
     }
     @media (max-width: 768px) {
-      .section { padding: 64px 0; }
+      .section { padding: 48px 0; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 100px 24px 48px; margin: 0; max-width: none; }
       .hero-right { display: none; }
       .nav-links { display: none; }
       .nav-actions .btn { display: none; }
       .hamburger { display: flex; }
-      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-      .metric-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .metric-item { border-right: none; border-bottom: 1px solid var(--border); padding: 24px 16px; }
+      .metric-item:last-child { border-bottom: none; }
+      .metric-number { font-size: 2.2rem; }
+      .chilearbitration-badge { min-width: auto; width: 100%; max-width: 280px; padding: 20px 24px; }
       .services-grid { grid-template-columns: 1fr; }
       .timeline { flex-direction: column; gap: 32px; }
       .timeline::before { display: none; }
       .timeline-step { flex-direction: row; text-align: left; gap: 16px; }
       .step-num { flex-shrink: 0; margin-bottom: 0; }
-      .testimonials-grid { grid-template-columns: 1fr; }
       .cases-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-grid > *:first-child { grid-column: auto; }
       .fab-group { bottom: 20px; right: 20px; }
+      .logo-strip-row { gap: 10px; animation-duration: 20s; }
+      .logo-box { padding: 10px 16px; font-size: .72rem; }
     }
   </style>
 </head>
@@ -506,11 +489,7 @@
   <!-- ===================== NAVBAR ===================== -->
   <nav class="navbar" id="navbar">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">S</div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">Support Consulting</span>
-        <span class="nav-logo-sub">Recursos Humanos</span>
-      </div>
+      <img src="img/logo.png" alt="Support Consulting" style="height:40px;width:auto;">
     </a>
     <div class="nav-links">
       <a href="index.html" class="nav-link active">Inicio</a>
@@ -754,55 +733,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===================== TESTIMONIOS ===================== -->
-  <section class="section bg-navy">
-    <div class="container">
-      <span class="section-label reveal" style="color:var(--blue-light);">Testimonios</span>
-      <h2 class="section-title light reveal">Lo que dicen nuestros clientes</h2>
-      <div class="accent-line reveal"></div>
-      <div class="testimonials-grid" style="margin-bottom:20px;">
-
-        <div class="testimonial-card reveal reveal-delay-1">
-          <span class="testimonial-quote-mark">"</span>
-          <p class="testimonial-text">Lograron encontrar el perfil exacto que buscábamos en tiempo récord. El proceso fue transparente y el informe de evaluación fue clave para nuestra decisión.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">GR</div>
-            <div>
-              <div class="author-name">[Nombre Apellido]</div>
-              <div class="author-role">Gerente de RRHH · Empresa Retail, Santiago</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card reveal reveal-delay-2">
-          <span class="testimonial-quote-mark">"</span>
-          <p class="testimonial-text">Trabajar con Support Consulting nos dio seguridad. Sus evaluaciones son claras, accionables y nos ayudaron a tomar una decisión difícil con confianza.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">SP</div>
-            <div>
-              <div class="author-name">[Nombre Apellido]</div>
-              <div class="author-role">Subgerente de Personas · Empresa Industria, R.M.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card reveal reveal-delay-3">
-          <span class="testimonial-quote-mark">"</span>
-          <p class="testimonial-text">El equipo es muy profesional y entienden el mundo corporativo chileno. Las entrevistas por competencias fueron de otro nivel.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">DO</div>
-            <div>
-              <div class="author-name">[Nombre Apellido]</div>
-              <div class="author-role">Director de Operaciones · Empresa Seguridad, Chile</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <p class="testimonials-note reveal">* Testimonios disponibles bajo confidencialidad. Nombres omitidos por acuerdo con el cliente.</p>
     </div>
   </section>
 

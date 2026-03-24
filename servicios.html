@@ -180,12 +180,15 @@
       .footer-grid>*:first-child { grid-column:1/-1; }
     }
     @media (max-width:768px) {
-      .section { padding:64px 0; }
-      .service-section { padding:64px 0; }
+      .section { padding:48px 0; }
+      .service-section { padding:48px 0; }
       .nav-links { display:none; }
       .nav-actions .btn { display:none; }
       .hamburger { display:flex; }
-      .security-grid { grid-template-columns:1fr; }
+      .service-grid { gap:24px; }
+      .service-tabs-inner { padding:0 4px; }
+      .service-tab { padding:10px 16px; font-size:.8rem; }
+      .security-grid { grid-template-columns:1fr; gap:8px; }
       .footer-grid { grid-template-columns:1fr; }
       .footer-grid>*:first-child { grid-column:auto; }
       .fab-group { bottom:20px; right:20px; }
@@ -197,11 +200,7 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">S</div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">Support Consulting</span>
-        <span class="nav-logo-sub">Recursos Humanos</span>
-      </div>
+      <img src="img/logo.png" alt="Support Consulting" style="height:40px;width:auto;">
     </a>
     <div class="nav-links">
       <a href="index.html" class="nav-link">Inicio</a>
